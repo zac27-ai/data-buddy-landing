@@ -4,13 +4,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            ליווי בפרויקטי דאטה סיינס
+            בונים בינה
           </h3>
-          <p className="text-muted-foreground mb-6">
-            הפיכת נתונים לתובנות עסקיות
+          <p className="text-muted-foreground mb-2">
+            הפוך את הידע שלך לפרויקט AI אמיתי
           </p>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} כל הזכויות שמורות
+            © {new Date().getFullYear()} בונים בינה - כל הזכויות שמורות
           </p>
         </div>
       </div>

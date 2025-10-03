@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import heroImage from "@/assets/hero-data-science.jpg";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const whatsappNumber = "972501234567"; // החלף עם המספר האמיתי
+  const whatsappMessage = encodeURIComponent("היי! אני מעוניין לשמוע עוד על הליווי בפרויקטי AI");
+  
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden" dir="rtl">
+    <section className="relative min-h-screen flex items-center overflow-hidden" dir="rtl">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary-glow/5 to-accent/5" />
       
@@ -22,33 +25,49 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            ליווי מקצועי בפרויקטי דאטה סיינס
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-150">
-            הפיכת נתונים לתובנות עסקיות משמעותיות עם ליווי מקצועי לאורך כל הדרך
-          </p>
+        <div className="max-w-5xl mx-auto">
+          {/* Main Headline */}
+          <div className="text-center mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              בונים בינה | להפוך את הידע שלך לפרויקט AI
+            </h1>
+            
+            <p className="text-2xl md:text-3xl font-semibold text-foreground mb-12 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-150">
+              שיגרום לך לבלוט ולהוביל בקריירה
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
+          {/* Problem Section */}
+          <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-border">
+            <h2 className="text-2xl font-bold mb-6 text-center">אם אתם מרגישים ש</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                "כולם מסביבכם כבר משתמשים ב-AI בשביל לתכנת, לחקור, וליצור",
+                "הידע שלכם - בכל תחום - נשאר תיאורטי בלבד",
+                "רעיונות טובים שלכם נתקעים במגירה",
+                "אתם תקועים בלופ מתסכל: אין לך ניסיון → אין קבלה לעבודה שתיתן לכם אותו"
+              ].map((problem, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-destructive/10 rounded-lg">
+                  <X className="h-6 w-6 text-destructive flex-shrink-0 mt-1" />
+                  <p className="text-lg">{problem}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <p className="text-xl mb-6 text-muted-foreground">
+              אני מזמין אותך למסע אישי וממוקד - שיעזור להפוך את כל אלה, על ידי בניית פרויקט דאטה סיינס אמיתי, יחד איתי, צעד אחר צעד, עד שיש לך תוצר מוחשי ביד
+            </p>
             <Button 
               variant="hero"
               size="lg" 
-              className="text-lg px-8"
-              onClick={scrollToContact}
+              className="text-xl px-10 py-6 h-auto"
+              onClick={openWhatsApp}
             >
-              צור קשר עכשיו
-              <ArrowLeft className="mr-2 h-5 w-5" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8"
-              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              למידע נוסף
+              <MessageCircle className="ml-2 h-6 w-6" />
+              בוא נדבר בווטסאפ
             </Button>
           </div>
         </div>
